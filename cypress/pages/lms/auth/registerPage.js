@@ -52,17 +52,17 @@ class RegisterPage {
   }
 
   checkUsername(username) {
-    cy.get(this.usernameField).type(username, { force: true })
+    cy.get(this.usernameField).type(username)
     cy.get(this.usernameField).should('have.value', username.substring(0, 30))
   }
 
   checkMaxFullName(fullName) {
-    cy.get(this.fullNameField).type(fullName, { force: true })
+    cy.get(this.fullNameField).type(fullName)
     cy.get(this.fullNameField).should('have.value', fullName.substring(0, 260))
   }
 
   getFieldDescription(fieldName, searchText) {
-    cy.get(`[id^="${fieldName}"`).click({ force: true, multiple: true })
+    cy.get(`[id="${fieldName}"]`).click({ multiple: true })
     cy.get(this.descriptionField(searchText)).should('be.visible')
   }
 }

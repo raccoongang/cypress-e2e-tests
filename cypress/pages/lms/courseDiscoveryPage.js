@@ -72,7 +72,7 @@ class CourseDiscoveryPage {
     cy.get(this.courseItem).then($cards => {
       const cardsCount = $cards.length
       this.getDiscoveryMessage().invoke('text').then((text) => {
-        const match = text.match(/Viewing (\d+) courses?/)
+        const match = text.match(/Перегляд (\d+) (курсів|курсу)/)
         // eslint-disable-next-line no-unused-expressions
         expect(match).to.not.be.null
         const messageCount = Number(match[1])

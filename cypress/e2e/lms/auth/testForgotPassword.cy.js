@@ -17,33 +17,33 @@ describe('Forgot password page tests', function () {
 
   describe('[TC_LEARNER_10] Existing user has a way to login to their account if they forget their password', { tags: '@regression' }, function () {
     it('check forgot password flow', function () {
-      cy.contains('Reset password')
+      cy.contains('Скинути Пароль')
       forgotPasswordPage.checkForgotPasswordFormStructure()
       forgotPasswordPage.recoverPassword(Cypress.env('LMS_USER_EMAIL'))
-      forgotPasswordPage.getErrorMessageTitle().should('contain.text', 'Check your email')
+      forgotPasswordPage.getErrorMessageTitle().should('contain.text', 'Перевірте свою пошту')
       // ToDo: when receiving the email, the user should be able to reset their password and log in
     })
   })
 
   describe('Fields validation check', { tags: '@regression' }, function () {
     const errMsg = {
-      mainErrMsg: 'We were unable to contact you.',
-      emailErrMsg: 'Enter your email',
-      emailErrMsgMin: 'Enter a valid email address',
-      successMsg: 'Check your email',
-      retryErrMsgMain: 'An error occurred.',
-      retryErrMsg: 'Your previous request is in progress, please try again in a few moments.',
-      helpTextMsg: `The email address you used to register with ${Cypress.env('PLATFORM_NAME')}`,
+      mainErrMsg: 'Нам не вдалося зв\'язатися з Вами.',
+      emailErrMsg: 'Введіть Вашу адресу електронної пошти',
+      emailErrMsgMin: 'Введіть введіть дійсну адресу електронної пошти',
+      successMsg: 'Перевірте свою пошту',
+      retryErrMsgMain: 'Сталася помилка.',
+      retryErrMsg: 'Ваш попередній запит у процесі обробки. Повторіть спробу за кілька хвилин.',
+      helpTextMsg: `Електронна пошта, яку Ви використовували для реєстрації на ${Cypress.env('PLATFORM_NAME')}`,
     }
     const userInfo = {
       minEmail: '1',
     }
 
     it('should show correct reset password form structure', function () {
-      cy.contains('Reset password')
-      cy.contains('Please enter your email address below and we will send you an email with instructions on how to reset your password.')
+      cy.contains('Скинути Пароль')
+      cy.contains('Будь ласка, введіть свою адресу електронної пошти нижче, і ми надішлемо Вам інструкції зі встановлення нового пароля.')
       forgotPasswordPage.checkForgotPasswordFormStructure()
-      cy.contains(`For additional help, contact ${Cypress.env('PLATFORM_NAME')} support at`)
+      cy.contains(`Щоб отримати додаткову допомогу, зверніться до служби підтримки ${Cypress.env('PLATFORM_NAME')} за адресою`)
       forgotPasswordPage.checkTechSupportLink()
       forgotPasswordPage.getEmailHelpMsg()
       forgotPasswordPage.getAllErrors().eq(0).should('contain.text', errMsg.helpTextMsg)

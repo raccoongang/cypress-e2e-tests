@@ -54,28 +54,28 @@ describe('Registration page tests', function () {
 
   describe('Fields validation check', { tags: '@regression' }, function () {
     const errMsg = {
-      mainErrMsg: 'We couldn\'t create your account.',
-      mainErrDescription: 'Please check your responses and try again.',
-      fullNameErrMsg: 'Enter your full name',
-      usernameErrMsg: 'Username must be between 2 and 30 characters',
-      usernameErrMsgWrong: 'Usernames can only contain letters (A-Z, a-z), numerals (0-9), underscores (_), and hyphens (-).',
-      usernameErrMsgExisting: 'It looks like this username is already taken',
-      emailErrMsg: 'Enter your email',
-      emailErrMsgExisting: 'This email is already associated with an existing account',
-      emailErrMsgWrong: 'Enter a valid email address',
-      passwordErrMsg: 'Password criteria has not been met',
-      passwordErrMsgMax: 'This password is too long. It must contain no more than 75 characters.',
-      similarPasswordErrMsg: 'The password is too similar to the username.',
+      mainErrMsg: 'Ми не змогли створити Ваш обліковий запис',
+      mainErrDescription: 'Будь ласка, перевірте свої відповіді та повторіть спробу.',
+      fullNameErrMsg: 'Введіть своє ім’я повністю',
+      usernameErrMsg: 'Iм\'я користувача повинно мати від 2 до 30 символів',
+      usernameErrMsgWrong: 'Імена користувачів можуть містити лише літери (A-Z, a-z), цифри (0-9), підкреслення (_) та дефіси (-). Імена користувачів не можуть містити пробілів.',
+      usernameErrMsgExisting: 'Вказане ім’я користувача вже зайняте.',
+      emailErrMsg: 'Введіть Вашу адресу електронної пошти',
+      emailErrMsgExisting: 'Ця електронна адреса вже пов\'язана з існуючим обліковим записом',
+      emailErrMsgWrong: 'Введіть введіть дійсну адресу електронної пошти',
+      passwordErrMsg: 'Критерії пароля не виконано',
+      passwordErrMsgMax: 'Цей пароль задовгий. Він має містити не більше 75 символів.',
+      similarPasswordErrMsg: 'Пароль надто схожий на ім’я користувача.',
     }
 
     const descMsg = {
-      fullNameDesc: 'This name will be used by any certificates that you earn.',
-      usernameDescFirstLine: 'The name that will identify you in your courses.',
-      usernameDescSecondLine: 'This can not be changed later.',
-      emailDesc: 'For account activation and important updates',
-      passwordDescFistLine: '1 letter',
-      passwordDescSecondLine: '1 number',
-      passwordDescThirdLine: '8 characters',
+      fullNameDesc: 'Це ім\'я буде використано у кожному отриманому сертифікаті',
+      usernameDescFirstLine: 'Ім\'я, за яким Вас будуть ідентифікувати в системі.',
+      usernameDescSecondLine: 'Його неможливо змінити пізніше.',
+      emailDesc: 'Для активації облікового запису та важливих оновлень',
+      passwordDescFistLine: '1 літера',
+      passwordDescSecondLine: '1 цифра',
+      passwordDescThirdLine: '8 символів',
     }
 
     it('should contain error messages for empty input', function () {

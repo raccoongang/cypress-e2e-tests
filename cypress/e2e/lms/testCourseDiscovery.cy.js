@@ -50,7 +50,7 @@ describe('Course Catalog page tests', function () {
     it('check the search for Course Catalog Page (negative)', function () {
       const searchString = 'NonExistentCourse'
       courseDiscoveryPage.searchCourse(searchString)
-      courseDiscoveryPage.getDiscoveryMessage().should('contain', `We couldn't find any results for "${searchString}".`)
+      courseDiscoveryPage.getDiscoveryMessage().should('contain', `Ми не змогли знайти жодних результатів для "${searchString}".`)
     })
   })
 

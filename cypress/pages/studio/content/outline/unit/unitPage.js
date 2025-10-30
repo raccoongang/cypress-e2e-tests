@@ -45,7 +45,7 @@ class UnitPage {
 
   addSection() {
     cy.intercept('POST', '/xblock/').as('newSection')
-    cy.get(this.emptyCourseContent).contains('button', 'New section').click()
+    cy.get(this.emptyCourseContent).contains('button', 'Новий розділ').click()
     cy.get(this.emptyCourseContent).should('not.exist')
     cy.get(this.sectionCard).should('be.visible')
     cy.get(this.newSubsection).should('be.visible')
@@ -59,7 +59,7 @@ class UnitPage {
 
   addSubsection() {
     cy.intercept('POST', '/xblock/').as('newSubsection')
-    cy.get(this.newSubsection).contains('button', 'New subsection').click()
+    cy.get(this.newSubsection).contains('button', 'Новий підрозділ').click()
     cy.get(this.subsectionCard).should('be.visible')
     return cy.wait('@newSubsection').then((interception) => {
       const responseBody = interception.response.body
@@ -72,7 +72,7 @@ class UnitPage {
   addUnit() {
     cy.intercept('POST', '/xblock/').as('newUnit')
     // cy.get(this.subsectionCard).click()
-    cy.get(this.newUnit).contains('button', 'New unit').click()
+    cy.get(this.newUnit).contains('button', 'Новий блок').click()
     return cy.wait('@newUnit').then((interception) => {
       const responseBody = interception.response.body
       this.unitLocator = responseBody.locator
@@ -95,10 +95,10 @@ class UnitPage {
   }
 
   addTextBlock(text) {
-    cy.get(this.newComponent).contains('button', 'Text').click()
+    cy.get(this.newComponent).contains('button', 'Текст').click()
     cy.get(this.modalContent).should('be.visible')
-      .contains('label', 'Text').click()
-    cy.get(this.modalFooter).contains('button.btn-primary', 'Select').click()
+      .contains('label', 'Текст').click()
+    cy.get(this.modalFooter).contains('button.btn-primary', 'Вибрати').click()
     cy.get('div[role="dialog"][aria-label="Editor Dialog"]').should('be.visible')
     cy.get('iframe.tox-edit-area__iframe').then($iframe => {
       const body = $iframe.contents().find('body')
@@ -127,15 +127,15 @@ class UnitPage {
   }
 
   checkEmptyUnitBlock() {
-    cy.get(this.newComponent).contains('button', 'Text')
-    cy.get(this.newComponent).contains('button', 'Video')
-    cy.get(this.newComponent).contains('button', 'Problem')
-    cy.get(this.newComponent).contains('button', 'Problem Bank')
-    cy.get(this.newComponent).contains('button', 'Library Content')
-    cy.get(this.newComponent).contains('button', 'Legacy Library')
-    cy.get(this.newComponent).contains('button', 'Open Response')
-    cy.get(this.newComponent).contains('button', 'Drag and Drop')
-    cy.get(this.newComponent).contains('button', 'Advanced')
+    cy.get(this.newComponent).contains('button', 'Текст')
+    cy.get(this.newComponent).contains('button', 'Відео')
+    cy.get(this.newComponent).contains('button', 'Завдання')
+    cy.get(this.newComponent).contains('button', 'задача Банк')
+    cy.get(this.newComponent).contains('button', 'Вміст бібліотеки')
+    cy.get(this.newComponent).contains('button', 'Спадщина бібліотека')
+    cy.get(this.newComponent).contains('button', 'Відповідь у вільній формі')
+    cy.get(this.newComponent).contains('button', 'Перетягнути і Скинути')
+    cy.get(this.newComponent).contains('button', 'Додатково')
   }
 
   publishSection() {
@@ -144,12 +144,12 @@ class UnitPage {
 
     cy.get(this.publishSectionToggle)
       .should('be.visible')
-      .and('contain', 'Publish')
+      .and('contain', 'Опублікувати')
       .and('have.attr', 'role', 'button')
 
-    cy.contains('Publish').click()
+    cy.contains('Опублікувати').click()
     cy.get('.publish-modal[role="dialog"]').should('be.visible')
-    cy.contains(this.modalTitle, 'Publish Section').should('be.visible')
+    cy.contains(this.modalTitle, 'Опублікувати Section').should('be.visible')
     cy.get('button[data-testid="publish-confirm-button"]').should('be.visible').click()
     return cy.wait('@publishSection')
   }
@@ -160,14 +160,14 @@ class UnitPage {
 
     cy.get(this.deleteSectionToggle)
       .should('be.visible')
-      .and('contain', 'Delete')
+      .and('contain', 'Видалити')
       .and('have.attr', 'role', 'button')
 
-    cy.contains('Delete').click()
-    cy.contains(this.modalTitle, 'Delete this section?').should('be.visible')
-    cy.get('div[role="dialog"][aria-label="Delete this section?"]')
+    cy.contains('Видалити').click()
+    cy.contains(this.modalTitle, 'Видаляти цю section?').should('be.visible')
+    cy.get('div[role="dialog"][aria-label="Видаляти цю section?"]')
       .find('button')
-      .contains('Delete')
+      .contains('Видалити')
       .click()
     return cy.wait('@deleteSection')
   }
@@ -177,18 +177,18 @@ class UnitPage {
 
     cy.get(this.configureUnitToggle)
       .should('be.visible')
-      .and('contain', 'Configure')
+      .and('contain', 'Налаштувати')
       .and('have.attr', 'role', 'button')
 
-    cy.contains('Configure').click()
+    cy.contains('Налаштувати').click()
     cy.get('[data-testid="configure-modal"]').should('be.visible')
-    cy.contains(this.modalTitle, 'Unit settings').should('be.visible')
+    cy.contains(this.modalTitle, 'налаштування Unit').should('be.visible')
     cy.get(this.unitVisibilityCheckbox).check().should('be.checked')
     cy.get('[data-testid="configure-save-button"]').click()
   }
 
   checkHideBadge() {
-    cy.get(this.hideBadge).contains('Staff only')
+    cy.get(this.hideBadge).contains('Тільки для персоналу')
   }
 
   deleteUnit() {
@@ -196,15 +196,15 @@ class UnitPage {
 
     cy.get(this.deleteUnitToggle)
       .should('be.visible')
-      .and('contain', 'Delete')
+      .and('contain', 'Видалити')
       .and('have.attr', 'role', 'button')
 
-    cy.contains('Delete').click()
-    cy.contains(this.modalTitle, 'Delete this unit?').should('be.visible')
+    cy.contains('Видалити').click()
+    cy.contains(this.modalTitle, 'Видаляти цю unit').should('be.visible')
 
-    cy.get('div[role="dialog"][aria-label="Delete this unit?"]')
+    cy.get('div[role="dialog"][aria-label="Видаляти цю unit?"]')
       .find('button')
-      .contains('Delete')
+      .contains('Видалити')
       .click()
   }
 }
