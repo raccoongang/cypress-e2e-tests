@@ -25,7 +25,7 @@ export default defineConfig({
   e2e: {
     setupNodeEvents() {},
     specPattern: 'cypress/e2e/**/*.cy.{js,jsx,ts,tsx}',
-    baseUrl: process.env.CYPRESS_LMS_BASE_URL,
+    baseUrl: process.env.CYPRESS_LMS_BASE_URL || 'https://lms.vso-teak-dev.e-school.net.ua',
   },
   blockHosts: [
     '**.cdn.**',
