@@ -5,10 +5,11 @@ Cypress.on('uncaught:exception', () => false)
 Cypress.Commands.add('signin', (sessionName, userEmail, userPassword, { cacheSession = true } = {}) => {
   const loginUrl = Cypress.env('loginUrl', '/login')
   const login = () => {
-    cy.request({
-      url: loginUrl,
-      failOnStatusCode: false,
-    })
+    // cy.request({
+    //   url: loginUrl,
+    //   failOnStatusCode: false,
+    // })
+    cy.visit(Cypress.config().baseUrl)
     cy.getCookie('csrftoken').its('value').then(($token) => {
       cy.request({
         method: 'POST',
@@ -72,3 +73,4 @@ Cypress.Commands.add('changeEnrollment', (courseId, enrollmentAction) => {
     )
   })
 })
+

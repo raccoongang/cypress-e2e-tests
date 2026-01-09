@@ -53,7 +53,7 @@ describe('Unit Page Tests', function () {
           `/courses/${NEW_COURSE_DATA.courseId}/jump_to/${data.unitLocator}`
         )
         cy.visit(`${Cypress.env('BASE_MFE_URL')}/learning/course/${NEW_COURSE_DATA.courseId}/${data.subsectionLocator}`)
-        cy.contains('There is no content here.').should('be.visible')
+        cy.contains('Тут немає ніякого контенту.').should('be.visible')
       })
     })
 

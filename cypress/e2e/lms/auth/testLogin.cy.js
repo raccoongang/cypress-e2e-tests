@@ -25,14 +25,14 @@ describe('Login page tests', function () {
 
   describe('Fields validation check', { tags: '@regression' }, function () {
     const errMsg = {
-      mainErrMsg: 'We couldn\'t sign you in.',
-      mainErrDescription: 'Please fill in the fields below.',
-      mainErrIncorrectCredentials: 'The username, email, or password you entered is incorrect. Please try again.',
-      emailOrUsernameFieldError: 'Enter your username or email',
-      emailErrMsgMin: 'Username or email must have at least 2 characters.',
-      passwordErrMsg: 'Enter your password',
-      lockedErrMsg: "To protect your account, it's been temporarily locked. Try again in 30 minutes.",
-      safeErrMsg: 'To be on the safe side, you can',
+      mainErrMsg: 'Неможливо увійти.',
+      mainErrDescription: 'Будь ласка, заповніть поля нижче.',
+      mainErrIncorrectCredentials: 'Ім\'я користувача, адреса електронної пошти або пароль, які Ви ввели, неправильні. Спробуйте ще раз',
+      emailOrUsernameFieldError: 'Введіть своє ім\'я користувача або електронну адресу',
+      emailErrMsgMin: 'Ім&#39;я користувача або адреса електронної пошти має містити принаймні 2 символи.',
+      passwordErrMsg: 'Критерії пароля не виконано',
+      lockedErrMsg: "Щоб захистити Ваш обліковий запис, його тимчасово заблоковано. Повторіть спробу через 30 хвилин.",
+      safeErrMsg: 'Щоб бути в безпеці, Ви можете перейти за посиланням скинути пароль перед повторною спробою.',
     }
     const userInfo = {
       incorrectEmail: `${randomString(7)}@example.com`,

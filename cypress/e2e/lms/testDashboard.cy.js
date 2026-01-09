@@ -15,9 +15,11 @@ describe('Learner Dashboard for learner', function () {
     cy.visit(`${baseURL}/learner-dashboard/`)
   })
 
+
   // 'Explore courses' button is available for Users without enrolled courses
   describe('[TC_LEARNER_16] Unenroll from course from Learner Dashboard', { tags: '@regression' }, function () {
     it('user should be enrolled on at least one course', function () {
+      cy.visit(`/courses/${DEMO_COURSE_DATA.courseId}/about`)
       cy.changeEnrollment(DEMO_COURSE_DATA.courseId, 'enroll')
     })
 
@@ -80,6 +82,11 @@ describe('Learner Dashboard for Staff', function () {
 
   before(function () {
     cy.clearCookies()
+    const baseURL = Cypress.env('BASE_MFE_URL')
+    cy.visit(`${baseURL}/authn/login`)
+    cy.signin('staff', Cypress.env('ADMIN_USER_EMAIL'), Cypress.env('ADMIN_USER_PASSWORD'))
+    cy.visit(`/courses/${DEMO_COURSE_DATA.courseId}/about`)
+    cy.changeEnrollment(DEMO_COURSE_DATA.courseId, 'enroll')
   })
 
   beforeEach(function () {
@@ -89,10 +96,21 @@ describe('Learner Dashboard for Staff', function () {
     cy.visit(`${baseURL}/learner-dashboard/`)
   })
 
+  after(function () {
+    cy.visit(`/courses/${DEMO_COURSE_DATA.courseId}/about`)
+    cy.changeEnrollment(DEMO_COURSE_DATA.courseId, 'unenroll')
+  })
+
   // User should be enrolled for at least one course
   describe('[TC_LEARNER_15] View course button', { tags: '@regression' }, function () {
+    // it('staff should be enrolled on at least one course', function () {
+    //   cy.visit(`/courses/${DEMO_COURSE_DATA.courseId}/about`)
+    //   cy.changeEnrollment(DEMO_COURSE_DATA.courseId, 'enroll')
+    // })
+
     it('view course button', function () {
-      dashboardPage.checkViewCourseButtons(['Begin Course', 'View Course', 'Resume'])
+      
+      dashboardPage.checkViewCourseButtons(['Розпочати курс', 'Переглянути курс', 'Продовжити'])
     })
   })
 
@@ -141,11 +159,15 @@ describe('Learner Dashboard for Staff', function () {
     })
 
     it('view course buttons', function () {
-      dashboardPage.checkViewCourseButtons(['Begin Course', 'View Course', 'Resume'])
+      dashboardPage.checkViewCourseButtons(['Розпочати курс', 'Переглянути курс', 'Продовжити'])
     })
 
     it('should redirect user to course outline page', function () {
       dashboardPage.checkCourseLearningPage()
+    })
+
+    it('staff enrolled in a course can unenroll from course from Learner Dashboard', function () {
+      dashboardPage.courseUnenroll()
     })
   })
 })

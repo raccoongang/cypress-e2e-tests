@@ -22,7 +22,7 @@ class CourseHomePage {
   }
 
   checkExpandAll() {
-    cy.get(this.expandAllButton).contains('Expand all').click()
+    cy.get(this.expandAllButton).contains('Розгорнути всі').click()
     cy.get(this.expandCollapseSection)
       .each($el => {
         cy.wrap($el).should('have.attr', 'aria-expanded', 'true')
@@ -30,7 +30,7 @@ class CourseHomePage {
   }
 
   checkCollapseAll() {
-    cy.get(this.expandAllButton).contains('Collapse all').click()
+    cy.get(this.expandAllButton).contains('Згорнути всі').click()
     cy.get(this.expandCollapseSection)
       .each($el => {
         cy.wrap($el).should('have.attr', 'aria-expanded', 'false')

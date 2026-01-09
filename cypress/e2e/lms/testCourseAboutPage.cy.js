@@ -20,13 +20,13 @@ describe('[TC_LEARNER_25] Course about page: enroll in a course', { tags: '@smok
     cy.visit(`${baseMFEURL}/learner-dashboard/`)
     dashboardPage.goToDiscoverPage()
     dashboardPage.selectCourse(DEMO_COURSE_DATA.courseName)
-    aboutCoursePage.getEnrollNowButton().should('contain.text', 'Enroll Now')
+    aboutCoursePage.getEnrollNowButton().should('contain.text', 'Зареєструйтесь зараз')
   })
 
   it('should redirect user to dashboard page by clicking on the "Enroll Now" button', function () {
     cy.visit(`/courses/${DEMO_COURSE_DATA.courseId}/about`)
     aboutCoursePage.getEnrollNowButton().click()
-    cy.url().should('include', '/learner-dashboard')
+    cy.url().should('include', '/learner-dashboard/')
     aboutCoursePage.getCourseTitle().contains(DEMO_COURSE_DATA.courseName)
   })
 
@@ -34,11 +34,12 @@ describe('[TC_LEARNER_25] Course about page: enroll in a course', { tags: '@smok
     cy.visit(`/courses/${DEMO_COURSE_DATA.courseId}/about`)
     aboutCoursePage.getEnrollNowButton()
       .should('have.class', 'disabled')
-      .and('contain', 'enrolled')
-    aboutCoursePage.getViewCourseButton().should('contain', 'View Course')
+      .and('contain', 'Ви записані на цей курс')
+    aboutCoursePage.getViewCourseButton().should('contain', 'Переглянути курс')
   })
 
   it('change enrollment status to unenroll', function () {
+    cy.visit(`/courses/${DEMO_COURSE_DATA.courseId}/about`)
     cy.changeEnrollment(DEMO_COURSE_DATA.courseId, 'unenroll')
   })
 })
@@ -117,7 +118,7 @@ describe('About course page tests for Not authorized user', { tags: '@regression
   })
 
   it('should display Enroll Now button', function () {
-    aboutCoursePage.getEnrollNowButton().should('contain.text', 'Enroll Now')
+    aboutCoursePage.getEnrollNowButton().should('contain.text', 'Зареєструйтесь зараз')
   })
 
   it('should visible facebook icon', function () {

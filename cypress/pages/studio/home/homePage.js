@@ -42,12 +42,12 @@ class HomePage {
   }
 
   getCreateCourseButton() {
-    return cy.contains('button', 'Create')
+    return cy.contains('button', 'Створити')
   }
 
   createNewCourse(courseName, courseOrg, courseNumber, courseRun) {
     cy.intercept('POST', `${Cypress.env('BASE_CMS_URL')}/course/`).as('createCourse')
-    this.getNewCourseButton().click()
+    this.getNewCourseButton().click({ force: true })
     this.getCreateCourseForm().should('be.visible')
     this.getCourseNameInput().type(courseName)
     this.getOrganizationInput().type(courseOrg)

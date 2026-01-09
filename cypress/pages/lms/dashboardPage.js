@@ -65,8 +65,8 @@ class DashboardPage {
   }
 
   checkMainHeaderLinks() {
-    cy.get(this.headerLink).contains('Courses').should('exist').and('have.class', 'active')
-    cy.get(this.headerLink).contains('Discover New').should('exist')
+    cy.get(this.headerLink).contains('Курси').should('exist').and('have.class', 'active')
+    cy.get(this.headerLink).contains('Ознайомитись з новими курсами').should('exist')
   }
 
   checkProgramsHeaderLink() {
@@ -76,9 +76,9 @@ class DashboardPage {
   checkHeaderDropdownMenu() {
     cy.get(this.headerDropdownMenu).should('exist')
     cy.get(this.headerDropdownMenu).click()
-    cy.get(this.dropdownItem).contains('Profile').should('be.visible')
-    cy.get(this.dropdownItem).contains('Account').should('be.visible')
-    cy.get(this.dropdownItem).contains('Sign Out').should('be.visible')
+    cy.get(this.dropdownItem).contains('Профіль').should('be.visible')
+    cy.get(this.dropdownItem).contains('Обліковий запис').should('be.visible')
+    cy.get(this.dropdownItem).contains('Вийти').should('be.visible')
   }
 
   getHelpLink() {
@@ -127,12 +127,12 @@ class DashboardPage {
   }
 
   goToDiscoverPage() {
-    cy.get(this.headerLink).contains('Discover New')
+    cy.get(this.headerLink).contains('Ознайомитись з новими курсами')
       .should('be.visible')
       .and('have.attr', 'href')
       .and('include', '/courses')
 
-    cy.get(this.headerLink).contains('Discover New').click()
+    cy.get(this.headerLink).contains('Ознайомитись з новими курсами').click()
     cy.url().should('include', '/courses')
   }
 
@@ -158,16 +158,16 @@ class DashboardPage {
 
     cy.get(this.unenrollToggle)
       .should('be.visible')
-      .and('contain', 'Unenroll')
+      .and('contain', 'Відписатися від курсу')
       .and('have.attr', 'role', 'button')
 
     cy.intercept('POST', '/change_enrollment').as('unenroll')
-    cy.contains('Unenroll').click()
-    cy.contains('Unenroll from course?').should('be.visible')
-    cy.contains('button', 'Unenroll').click()
-    cy.contains('Skip survey').should('be.visible').click()
-    cy.contains('You are unenrolled').should('be.visible')
-    cy.contains('button', 'Return to dashboard').click()
+    cy.contains('Відписатися від курсу').click()
+    cy.contains('Відписатись від курсу?').should('be.visible')
+    cy.contains('button', 'Відписатися від курсу').click()
+    cy.contains('Пропустити опитування').should('be.visible').click()
+    cy.contains('Ви більше не зареєстровані на курс').should('be.visible')
+    cy.contains('button', 'Повернутися до панелі керування').click()
     cy.wait('@unenroll')
   }
 
@@ -176,12 +176,12 @@ class DashboardPage {
 
     cy.get(this.unenrollToggle)
       .should('be.visible')
-      .and('contain', 'Unenroll')
+      .and('contain', 'Відписатися від курсу')
       .and('have.attr', 'role', 'button')
 
-    cy.contains('Unenroll').click()
-    cy.contains('Unenroll from course?').should('be.visible')
-    cy.contains('Never mind').should('be.visible').click()
+    cy.contains('Відписатися від курсу').click()
+    cy.contains('Відписатись від курсу?').should('be.visible')
+    cy.contains('Не зважай').should('be.visible').click()
   }
 
   getEmailSettings() {
@@ -206,12 +206,12 @@ class DashboardPage {
   }
 
   getSearchBarLabel() {
-    return cy.contains('label', 'Username or email')
+    return cy.contains('label', 'Ім\'я користувача або електронна пошта')
   }
 
   getSubmitViewAsButtonExist() {
     cy.get(this.viewAsSubmitButton)
-      .should('contain', 'Submit')
+      .should('contain', 'Надіслати')
       .should('be.disabled')
   }
 
@@ -219,7 +219,7 @@ class DashboardPage {
     cy.get(this.viewAsSearchForm).type('test')
 
     cy.get(this.viewAsSubmitButton)
-      .should('contain', 'Submit')
+      .should('contain', 'Надіслати')
       .should('not.be.disabled')
       .should('have.class', 'btn-brand')
 
@@ -246,13 +246,13 @@ class DashboardPage {
       .should('exist')
       .within(() => {
         cy.get(this.refineButton)
-          .should('contain', 'Refine')
+          .should('contain', 'Покращити')
       })
   }
 
   checkFilterByCourseStatus() {
     cy.get(this.filterButton).click()
-    const testFilters = ['In-Progress', 'Not Started', 'Done', 'Not Enrolled', 'Upgraded']
+    const testFilters = ['В процесі', 'Не розпочато', 'Завершено', 'Не зареєстровано', 'Оновлено']
 
     testFilters.forEach(filter => {
       cy.contains(this.filterFormLabel, filter)
@@ -265,7 +265,7 @@ class DashboardPage {
       const initialCount = $cards.length
 
       cy.get(this.filterButton).click()
-      const testSort = ['Last enrolled', 'Title (A-Z)']
+      const testSort = ['Термін реєстрації', 'Назва (A-Z)']
 
       testSort.forEach(sort => {
         cy.contains(this.filterFormLabel, sort).click()
@@ -277,13 +277,13 @@ class DashboardPage {
 
   clearAllFilters() {
     cy.get(this.filterButton).click()
-    const testFilters = ['In-Progress']
+    const testFilters = ['В процесі']
 
     testFilters.forEach(filter => {
       cy.contains(this.filterFormLabel, filter)
         .click()
     })
-    cy.contains('Clear all').click()
+    cy.contains('Очистити все').click()
   }
 
   checkCourseTitle() {

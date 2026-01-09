@@ -28,8 +28,8 @@ export default defineConfig({
     baseUrl: process.env.CYPRESS_LMS_BASE_URL || 'https://lms.vso-teak-dev.e-school.net.ua',
   },
   blockHosts: [
-    '**.cdn.**',
-    'cdn.*',
+    // '**.cdn.**',
+    // 'cdn.*',
     '*.optimizely.**',
     'www.googletagmanager.com',
     'www.google-analytics.com',

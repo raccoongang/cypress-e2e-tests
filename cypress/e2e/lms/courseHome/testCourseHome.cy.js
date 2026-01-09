@@ -32,13 +32,15 @@ describe('[TC_LEARNER_33] Course outline on already enrolled course', { tags: '@
   })
 
   beforeEach(function () {
-    cy.visit(`${baseMFEURL}/authn/login`)
+    // cy.visit(`${baseMFEURL}/authn/login`)
+    cy.visit(`/courses/${DEMO_COURSE_DATA.courseId}/about`)
     cy.signin('test user', Cypress.env('LMS_USER_EMAIL'), Cypress.env('LMS_USER_PASSWORD'))
     cy.changeEnrollment(DEMO_COURSE_DATA.courseId, 'enroll')
     cy.visit(`${baseMFEURL}/learner-dashboard/`)
   })
 
   afterEach(function () {
+    cy.visit(`/courses/${DEMO_COURSE_DATA.courseId}/about`)
     cy.changeEnrollment(DEMO_COURSE_DATA.courseId, 'unenroll')
   })
 
