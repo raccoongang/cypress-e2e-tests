@@ -29,8 +29,6 @@ export default defineConfig({
     baseUrl: process.env.CYPRESS_LMS_BASE_URL,
   },
   blockHosts: [
-    '**.cdn.**',
-    'cdn.*',
     '*.optimizely.**',
     'www.googletagmanager.com',
     'www.google-analytics.com',

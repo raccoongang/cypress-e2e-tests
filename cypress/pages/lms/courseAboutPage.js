@@ -64,7 +64,7 @@ class CourseAboutPage {
   checkClassesStartDateFormat() {
     cy.get(this.classesStart)
       .invoke('text')
-      .should('match', /^[A-Z][a-z]{2} \d{1,2}, \d{4}$/)
+      .should('match', /^\d{1,2} [а-яіїєґ]{3} \d{4} р\.$/)
   }
 
   checkCourseName(courseTitle) {

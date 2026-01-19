@@ -5,10 +5,7 @@ Cypress.on('uncaught:exception', () => false)
 Cypress.Commands.add('signin', (sessionName, userEmail, userPassword, { cacheSession = true } = {}) => {
   const loginUrl = Cypress.env('loginUrl', '/login')
   const login = () => {
-    cy.request({
-      url: loginUrl,
-      failOnStatusCode: false,
-    })
+    cy.visit(Cypress.config().baseUrl)
     cy.getCookie('csrftoken').its('value').then(($token) => {
       cy.request({
         method: 'POST',
@@ -108,4 +105,47 @@ Cypress.Commands.add('deleteXBlock', (blockLocator) => {
       (response) => response.status,
     )
   })
+})
+
+Cypress.Commands.add('changeEnrollmentSafe', (courseId, enrollmentAction) => {
+  const changeEnrollUrl = Cypress.env('enroll_url', '/change_enrollment')
+
+  const executeChangeEnrollment = () => {
+    cy.getCookie('csrftoken').its('value').then(($token) => {
+      cy.request({
+        method: 'POST',
+        url: changeEnrollUrl,
+        form: true,
+        body: {
+          course_id: courseId,
+          enrollment_action: enrollmentAction,
+        },
+        headers: {
+          Referer: Cypress.config().baseUrl + changeEnrollUrl,
+          'X-CSRFToken': $token,
+        },
+      }).then(
+        (response) => response.body.status,
+      )
+    })
+  }
+
+  if (enrollmentAction === 'enroll') {
+    cy.request({
+      method: 'GET',
+      url: `/api/enrollment/v1/enrollment/${courseId}`,
+      failOnStatusCode: false,
+    }).then((response) => {
+      const isEnrolled = response.status === 200 && response.body.is_active === true
+
+      if (isEnrolled) {
+        cy.log(`User is already enrolled in ${courseId}. Skipping enrollment request.`)
+      } else {
+        cy.log(`User is NOT enrolled (Status: ${response.status}). Proceeding to enroll...`)
+        executeChangeEnrollment()
+      }
+    })
+  } else {
+    executeChangeEnrollment()
+  }
 })
