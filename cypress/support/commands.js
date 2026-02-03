@@ -59,6 +59,7 @@ Cypress.Commands.add('changeEnrollment', (courseId, enrollmentAction) => {
       method: 'POST',
       url: changeEnrollUrl,
       form: true,
+      failOnStatusCode: false,
       body: {
         course_id: courseId,
         enrollment_action: enrollmentAction,

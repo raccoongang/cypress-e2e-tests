@@ -1,0 +1,481 @@
+{
+  "verified_mode": null,
+  "access_expiration": null,
+  "certificate_data": null,
+  "completion_summary": {
+    "complete_count": 0,
+    "incomplete_count": 58,
+    "locked_count": 0
+  },
+  "course_grade": {
+    "letter_grade": null,
+    "percent": 0,
+    "is_passing": false
+  },
+  "credit_course_requirements": null,
+  "end": null,
+  "enrollment_mode": "honor",
+  "grading_policy": {
+    "assignment_policies": [
+      {
+        "num_droppable": 0,
+        "num_total": 1,
+        "short_label": "Basic",
+        "type": "Basic Assessment Tools",
+        "weight": 0.3
+      },
+      {
+        "num_droppable": 0,
+        "num_total": 1,
+        "short_label": "Intermediate",
+        "type": "Intermediate Assessment Tools",
+        "weight": 0.35
+      },
+      {
+        "num_droppable": 0,
+        "num_total": 1,
+        "short_label": "Advanced",
+        "type": "Advanced Assessment Tools",
+        "weight": 0.35
+      }
+    ],
+    "grade_range": {
+      "Pass": 0.5
+    }
+  },
+  "has_scheduled_content": false,
+  "section_scores": [
+    {
+      "display_name": "Module 1: Dive into the Open edX® platform!",
+      "subsections": [
+        {
+          "assignment_type": null,
+          "block_key": "block-v1:OpenedX+DemoX+DemoCourse+type@sequential+block@4e1de5e13fc3422997fe246b40a43aa1",
+          "display_name": "Introduction to the Open edX® platform",
+          "has_graded_assignment": false,
+          "override": null,
+          "learner_has_access": true,
+          "num_points_earned": 0,
+          "num_points_possible": 0,
+          "percent_graded": 0,
+          "problem_scores": [],
+          "show_correctness": "always",
+          "show_grades": true,
+          "url": "https://teak-rg-dev.raccoongang.net/courses/course-v1:OpenedX+DemoX+DemoCourse/jump_to/block-v1:OpenedX+DemoX+DemoCourse+type@sequential+block@4e1de5e13fc3422997fe246b40a43aa1"
+        },
+        {
+          "assignment_type": null,
+          "block_key": "block-v1:OpenedX+DemoX+DemoCourse+type@sequential+block@f5c59ce5928f42f4af485e187a93963e",
+          "display_name": "The Structure of the Open edX® platform",
+          "has_graded_assignment": false,
+          "override": null,
+          "learner_has_access": true,
+          "num_points_earned": 0,
+          "num_points_possible": 0,
+          "percent_graded": 0,
+          "problem_scores": [],
+          "show_correctness": "always",
+          "show_grades": true,
+          "url": "https://teak-rg-dev.raccoongang.net/courses/course-v1:OpenedX+DemoX+DemoCourse/jump_to/block-v1:OpenedX+DemoX+DemoCourse+type@sequential+block@f5c59ce5928f42f4af485e187a93963e"
+        }
+      ]
+    },
+    {
+      "display_name": "Module 2: Crafting Captivating Content",
+      "subsections": [
+        {
+          "assignment_type": null,
+          "block_key": "block-v1:OpenedX+DemoX+DemoCourse+type@sequential+block@e25d8eac15224f91bd3aa22bfe28a602",
+          "display_name": "Text, Images, and HTML",
+          "has_graded_assignment": false,
+          "override": null,
+          "learner_has_access": true,
+          "num_points_earned": 0,
+          "num_points_possible": 0,
+          "percent_graded": 0,
+          "problem_scores": [],
+          "show_correctness": "always",
+          "show_grades": true,
+          "url": "https://teak-rg-dev.raccoongang.net/courses/course-v1:OpenedX+DemoX+DemoCourse/jump_to/block-v1:OpenedX+DemoX+DemoCourse+type@sequential+block@e25d8eac15224f91bd3aa22bfe28a602"
+        },
+        {
+          "assignment_type": null,
+          "block_key": "block-v1:OpenedX+DemoX+DemoCourse+type@sequential+block@0ce96364b5b144db9a94c969fba59f09",
+          "display_name": "Videos",
+          "has_graded_assignment": false,
+          "override": null,
+          "learner_has_access": true,
+          "num_points_earned": 0,
+          "num_points_possible": 0,
+          "percent_graded": 0,
+          "problem_scores": [],
+          "show_correctness": "always",
+          "show_grades": true,
+          "url": "https://teak-rg-dev.raccoongang.net/courses/course-v1:OpenedX+DemoX+DemoCourse/jump_to/block-v1:OpenedX+DemoX+DemoCourse+type@sequential+block@0ce96364b5b144db9a94c969fba59f09"
+        },
+        {
+          "assignment_type": null,
+          "block_key": "block-v1:OpenedX+DemoX+DemoCourse+type@sequential+block@747014a9a0aa42d683b2b05ee2c6f72e",
+          "display_name": "Other Learning Tools",
+          "has_graded_assignment": false,
+          "override": null,
+          "learner_has_access": true,
+          "num_points_earned": 0,
+          "num_points_possible": 1,
+          "percent_graded": 0,
+          "problem_scores": [
+            {
+              "earned": 0,
+              "possible": 1
+            }
+          ],
+          "show_correctness": "always",
+          "show_grades": true,
+          "url": "https://teak-rg-dev.raccoongang.net/courses/course-v1:OpenedX+DemoX+DemoCourse/jump_to/block-v1:OpenedX+DemoX+DemoCourse+type@sequential+block@747014a9a0aa42d683b2b05ee2c6f72e"
+        },
+        {
+          "assignment_type": null,
+          "block_key": "block-v1:OpenedX+DemoX+DemoCourse+type@sequential+block@606ee7182eb54bf797d0697c1c4abd23",
+          "display_name": "Conditional Content",
+          "has_graded_assignment": false,
+          "override": null,
+          "learner_has_access": true,
+          "num_points_earned": 0,
+          "num_points_possible": 0,
+          "percent_graded": 0,
+          "problem_scores": [],
+          "show_correctness": "always",
+          "show_grades": true,
+          "url": "https://teak-rg-dev.raccoongang.net/courses/course-v1:OpenedX+DemoX+DemoCourse/jump_to/block-v1:OpenedX+DemoX+DemoCourse+type@sequential+block@606ee7182eb54bf797d0697c1c4abd23"
+        }
+      ]
+    },
+    {
+      "display_name": "Module 3: Ace the Assessments!",
+      "subsections": [
+        {
+          "assignment_type": null,
+          "block_key": "block-v1:OpenedX+DemoX+DemoCourse+type@sequential+block@f80c166b31da4a129f2d23f9fe8bb97b",
+          "display_name": "Summary",
+          "has_graded_assignment": false,
+          "override": null,
+          "learner_has_access": true,
+          "num_points_earned": 0,
+          "num_points_possible": 0,
+          "percent_graded": 0,
+          "problem_scores": [],
+          "show_correctness": "always",
+          "show_grades": true,
+          "url": "https://teak-rg-dev.raccoongang.net/courses/course-v1:OpenedX+DemoX+DemoCourse/jump_to/block-v1:OpenedX+DemoX+DemoCourse+type@sequential+block@f80c166b31da4a129f2d23f9fe8bb97b"
+        },
+        {
+          "assignment_type": "Basic Assessment Tools",
+          "block_key": "block-v1:OpenedX+DemoX+DemoCourse+type@sequential+block@276a277f5a784f53a7525e28b96e9a1b",
+          "display_name": "Basic Assessment Tools",
+          "has_graded_assignment": true,
+          "override": null,
+          "learner_has_access": true,
+          "num_points_earned": 0,
+          "num_points_possible": 20,
+          "percent_graded": 0,
+          "problem_scores": [
+            {
+              "earned": 0,
+              "possible": 1
+            },
+            {
+              "earned": 0,
+              "possible": 1
+            },
+            {
+              "earned": 0,
+              "possible": 1
+            },
+            {
+              "earned": 0,
+              "possible": 1
+            },
+            {
+              "earned": 0,
+              "possible": 1
+            },
+            {
+              "earned": 0,
+              "possible": 8
+            },
+            {
+              "earned": 0,
+              "possible": 1
+            },
+            {
+              "earned": 0,
+              "possible": 1
+            },
+            {
+              "earned": 0,
+              "possible": 2
+            },
+            {
+              "earned": 0,
+              "possible": 1
+            },
+            {
+              "earned": 0,
+              "possible": 1
+            },
+            {
+              "earned": 0,
+              "possible": 1
+            }
+          ],
+          "show_correctness": "always",
+          "show_grades": true,
+          "url": "https://teak-rg-dev.raccoongang.net/courses/course-v1:OpenedX+DemoX+DemoCourse/jump_to/block-v1:OpenedX+DemoX+DemoCourse+type@sequential+block@276a277f5a784f53a7525e28b96e9a1b"
+        },
+        {
+          "assignment_type": "Intermediate Assessment Tools",
+          "block_key": "block-v1:OpenedX+DemoX+DemoCourse+type@sequential+block@e2206f6f2cd449ab85a7aa424fd0fb72",
+          "display_name": "Intermediate  Assessment Tools",
+          "has_graded_assignment": true,
+          "override": null,
+          "learner_has_access": true,
+          "num_points_earned": 0,
+          "num_points_possible": 15,
+          "percent_graded": 0,
+          "problem_scores": [
+            {
+              "earned": 0,
+              "possible": 1
+            },
+            {
+              "earned": 0,
+              "possible": 1
+            },
+            {
+              "earned": 0,
+              "possible": 10
+            },
+            {
+              "earned": 0,
+              "possible": 1
+            },
+            {
+              "earned": 0,
+              "possible": 1
+            },
+            {
+              "earned": 0,
+              "possible": 1
+            }
+          ],
+          "show_correctness": "always",
+          "show_grades": true,
+          "url": "https://teak-rg-dev.raccoongang.net/courses/course-v1:OpenedX+DemoX+DemoCourse/jump_to/block-v1:OpenedX+DemoX+DemoCourse+type@sequential+block@e2206f6f2cd449ab85a7aa424fd0fb72"
+        },
+        {
+          "assignment_type": "Advanced Assessment Tools",
+          "block_key": "block-v1:OpenedX+DemoX+DemoCourse+type@sequential+block@971737e543204551bb34c4ca44e12b86",
+          "display_name": "Advanced  Assessment Tools",
+          "has_graded_assignment": true,
+          "override": null,
+          "learner_has_access": true,
+          "num_points_earned": 0,
+          "num_points_possible": 14,
+          "percent_graded": 0,
+          "problem_scores": [
+            {
+              "earned": 0,
+              "possible": 1
+            },
+            {
+              "earned": 0,
+              "possible": 4
+            },
+            {
+              "earned": 0,
+              "possible": 1
+            },
+            {
+              "earned": 0,
+              "possible": 1
+            },
+            {
+              "earned": 0,
+              "possible": 1
+            },
+            {
+              "earned": 0,
+              "possible": 1
+            },
+            {
+              "earned": 0,
+              "possible": 1
+            },
+            {
+              "earned": 0,
+              "possible": 1
+            },
+            {
+              "earned": 0,
+              "possible": 1
+            },
+            {
+              "earned": 0,
+              "possible": 1
+            },
+            {
+              "earned": 0,
+              "possible": 1
+            }
+          ],
+          "show_correctness": "always",
+          "show_grades": true,
+          "url": "https://teak-rg-dev.raccoongang.net/courses/course-v1:OpenedX+DemoX+DemoCourse/jump_to/block-v1:OpenedX+DemoX+DemoCourse+type@sequential+block@971737e543204551bb34c4ca44e12b86"
+        },
+        {
+          "assignment_type": null,
+          "block_key": "block-v1:OpenedX+DemoX+DemoCourse+type@sequential+block@6ba8902b2179452dad8a55e342882fd3",
+          "display_name": "Specialty Assessment Tools",
+          "has_graded_assignment": false,
+          "override": null,
+          "learner_has_access": true,
+          "num_points_earned": 0,
+          "num_points_possible": 2,
+          "percent_graded": 0,
+          "problem_scores": [
+            {
+              "earned": 0,
+              "possible": 1
+            },
+            {
+              "earned": 0,
+              "possible": 1
+            }
+          ],
+          "show_correctness": "always",
+          "show_grades": true,
+          "url": "https://teak-rg-dev.raccoongang.net/courses/course-v1:OpenedX+DemoX+DemoCourse/jump_to/block-v1:OpenedX+DemoX+DemoCourse+type@sequential+block@6ba8902b2179452dad8a55e342882fd3"
+        }
+      ]
+    },
+    {
+      "display_name": "Module 4: Social Learning: Engaging Through Interaction",
+      "subsections": [
+        {
+          "assignment_type": null,
+          "block_key": "block-v1:OpenedX+DemoX+DemoCourse+type@sequential+block@462452ab42084a4ab4a2039d46deb509",
+          "display_name": "Discussions",
+          "has_graded_assignment": false,
+          "override": null,
+          "learner_has_access": true,
+          "num_points_earned": 0,
+          "num_points_possible": 0,
+          "percent_graded": 0,
+          "problem_scores": [],
+          "show_correctness": "always",
+          "show_grades": true,
+          "url": "https://teak-rg-dev.raccoongang.net/courses/course-v1:OpenedX+DemoX+DemoCourse/jump_to/block-v1:OpenedX+DemoX+DemoCourse+type@sequential+block@462452ab42084a4ab4a2039d46deb509"
+        },
+        {
+          "assignment_type": null,
+          "block_key": "block-v1:OpenedX+DemoX+DemoCourse+type@sequential+block@f5ac527b7c4c4684a5df6da5aa6f8a7b",
+          "display_name": "Cohorts, Content Groups & Teams",
+          "has_graded_assignment": false,
+          "override": null,
+          "learner_has_access": true,
+          "num_points_earned": 0,
+          "num_points_possible": 0,
+          "percent_graded": 0,
+          "problem_scores": [],
+          "show_correctness": "always",
+          "show_grades": true,
+          "url": "https://teak-rg-dev.raccoongang.net/courses/course-v1:OpenedX+DemoX+DemoCourse/jump_to/block-v1:OpenedX+DemoX+DemoCourse+type@sequential+block@f5ac527b7c4c4684a5df6da5aa6f8a7b"
+        },
+        {
+          "assignment_type": null,
+          "block_key": "block-v1:OpenedX+DemoX+DemoCourse+type@sequential+block@c0b796e411ff423cb1b56ccd927d7e6d",
+          "display_name": "Social Learning Tools",
+          "has_graded_assignment": false,
+          "override": null,
+          "learner_has_access": true,
+          "num_points_earned": 0,
+          "num_points_possible": 3,
+          "percent_graded": 0,
+          "problem_scores": [
+            {
+              "earned": 0,
+              "possible": 3
+            }
+          ],
+          "show_correctness": "always",
+          "show_grades": true,
+          "url": "https://teak-rg-dev.raccoongang.net/courses/course-v1:OpenedX+DemoX+DemoCourse/jump_to/block-v1:OpenedX+DemoX+DemoCourse+type@sequential+block@c0b796e411ff423cb1b56ccd927d7e6d"
+        }
+      ]
+    },
+    {
+      "display_name": "Module 5: Your Open edX Community",
+      "subsections": [
+        {
+          "assignment_type": null,
+          "block_key": "block-v1:OpenedX+DemoX+DemoCourse+type@sequential+block@5aecf320a7dd4866bdd768cbef9d2131",
+          "display_name": "Welcome to the Community",
+          "has_graded_assignment": false,
+          "override": null,
+          "learner_has_access": true,
+          "num_points_earned": 0,
+          "num_points_possible": 0,
+          "percent_graded": 0,
+          "problem_scores": [],
+          "show_correctness": "always",
+          "show_grades": true,
+          "url": "https://teak-rg-dev.raccoongang.net/courses/course-v1:OpenedX+DemoX+DemoCourse/jump_to/block-v1:OpenedX+DemoX+DemoCourse+type@sequential+block@5aecf320a7dd4866bdd768cbef9d2131"
+        },
+        {
+          "assignment_type": null,
+          "block_key": "block-v1:OpenedX+DemoX+DemoCourse+type@sequential+block@238baaf16b3c4157ad0c01701cf57e25",
+          "display_name": "Getting Help",
+          "has_graded_assignment": false,
+          "override": null,
+          "learner_has_access": true,
+          "num_points_earned": 0,
+          "num_points_possible": 0,
+          "percent_graded": 0,
+          "problem_scores": [],
+          "show_correctness": "always",
+          "show_grades": true,
+          "url": "https://teak-rg-dev.raccoongang.net/courses/course-v1:OpenedX+DemoX+DemoCourse/jump_to/block-v1:OpenedX+DemoX+DemoCourse+type@sequential+block@238baaf16b3c4157ad0c01701cf57e25"
+        }
+      ]
+    },
+    {
+      "display_name": "Conclusion",
+      "subsections": [
+        {
+          "assignment_type": null,
+          "block_key": "block-v1:OpenedX+DemoX+DemoCourse+type@sequential+block@8d709659aba644edac0da66cd322ba7c",
+          "display_name": "Conclusion",
+          "has_graded_assignment": false,
+          "override": null,
+          "learner_has_access": true,
+          "num_points_earned": 0,
+          "num_points_possible": 0,
+          "percent_graded": 0,
+          "problem_scores": [],
+          "show_correctness": "always",
+          "show_grades": true,
+          "url": "https://teak-rg-dev.raccoongang.net/courses/course-v1:OpenedX+DemoX+DemoCourse/jump_to/block-v1:OpenedX+DemoX+DemoCourse+type@sequential+block@8d709659aba644edac0da66cd322ba7c"
+        }
+      ]
+    }
+  ],
+  "studio_url": "//studio.teak-rg-dev.raccoongang.net/settings/grading/course-v1:OpenedX+DemoX+DemoCourse",
+  "username": "anna",
+  "user_has_passing_grade": false,
+  "verification_data": {
+    "link": null,
+    "status": "none",
+    "status_date": null
+  },
+  "disable_progress_graph": false
+}
