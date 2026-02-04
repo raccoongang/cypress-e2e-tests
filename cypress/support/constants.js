@@ -14,3 +14,9 @@ export const NEW_COURSE_DATA = {
   courseCode: 'auto123',
   courseRun: '2025_T1',
 }
+// Copying course data
+export const COPYING_COURSE_DATA = {
+  courseClass: 'Test class',
+  courseSubject: 'Test predmet',
+  courseName: 'qalex1',
+}
