@@ -47,6 +47,8 @@ class DashboardPage {
 
   courseCardImage = '.pgn__card-image-cap'
 
+  copiedCourseCardImage = 'a.pgn__card-wrapper-image-cap'
+
   courseCardDetails = '[data-testid="CourseCardDetails"]'
 
   alertCardMessage = '.alert-message-content'
@@ -319,6 +321,19 @@ class DashboardPage {
   checkCourseLearningPage() {
     this.getViewCourseButtons().first().click()
     cy.url().should('include', '/learning/course')
+  }
+
+  getCourseLinkById(courseId) {
+    const selector = `${this.courseCard} ${this.copiedCourseCardImage}[href*="${courseId}"]`
+    return cy.get(selector)
+  }
+
+  assertCourseVisibilityById(courseId, shouldBeVisible = true) {
+    if (shouldBeVisible) {
+      this.getCourseLinkById(courseId).should('be.visible')
+    } else {
+      this.getCourseLinkById(courseId).should('not.exist')
+    }
   }
 }
 
