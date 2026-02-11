@@ -1,16 +1,18 @@
+import DashboardPage from '../../pages/lms/dashboardPage'
 import TeacherDashboardPage from '../../pages/lms/teacherDashboardPage'
 import { COPYING_COURSE_DATA } from '../../support/constants'
 
 const teacherDashboardPage = new TeacherDashboardPage()
+const dashboardPage = new DashboardPage()
 const baseURL = Cypress.env('BASE_MFE_URL')
 const COURSE_IS_CLONING = 1
 
-describe('Teacher Dashboard for Teacher', function () {
+describe('Teacher Dashboard Test', function () {
   before(function () {
     cy.clearCookies()
   })
 
-  describe('Main', function () {
+  describe('Teacher copies course and invites user', function () {
     beforeEach(function () {
       cy.loginTeacher()
       cy.visit(`${baseURL}/teacher-dashboard/`)
@@ -65,22 +67,74 @@ describe('Teacher Dashboard for Teacher', function () {
           Cypress.env('clonedCourseId', value) // Save it temporarily
         })
       })
-
-      it('Test clonedCourseId', function () {
-        cy.log(Cypress.env('clonedCourseId'))
-      })
     })
 
     describe('[C244240] Invite user o the copied course', function () {
       it('Teacher can invite a user to copied course', function () {
-        cy.visit(`${baseURL}/teacher-dashboard/courses`)
-        teacherDashboardPage.getCopiedCourseInviteButton()
+        cy.studentEnroll(true)
       })
     })
   })
 
-  describe('', function () {
+  describe('User checks access to copied course', function () {
+    beforeEach(function () {
+      cy.loginLmsUser()
+      cy.visit(`${baseURL}/learner-dashboard/`)
+    })
 
+    describe('User checks the access to course after invite', function () {
+      it('User can access invited course', function () {
+        cy.visit(`${baseURL}/learner-dashboard/#teachers-courses`)
+
+        dashboardPage.assertCourseVisibilityById(
+          Cypress.env('clonedCourseId'),
+          true,
+        )
+
+        dashboardPage
+          .getCourseLinkById(Cypress.env('clonedCourseId'))
+          .then(($link) => {
+            const href = $link.attr('href')
+
+            expect(href).to.include(Cypress.env('clonedCourseId'))
+
+            cy.visit(href)
+            cy.location('pathname')
+              .should('include', Cypress.env('clonedCourseId'))
+          })
+      })
+    })
+  })
+
+  describe('Teacher removes the invitation', function () {
+    beforeEach(function () {
+      cy.loginTeacher()
+      cy.visit(`${baseURL}/teacher-dashboard/`)
+    })
+
+    describe('[C244240] Uninvite user from the copied course', function () {
+      it('Teacher can uninvite a user from a copied course', function () {
+        cy.studentEnroll(false)
+      })
+    })
+  })
+
+  describe('User checks that has no access to copied course', function () {
+    beforeEach(function () {
+      cy.loginLmsUser()
+      cy.visit(`${baseURL}/learner-dashboard/`)
+    })
+
+    describe('User checks the access to course after uninvite', function () {
+      it('User cannot see or open the course', function () {
+        cy.visit(`${baseURL}/learner-dashboard/#teachers-courses`)
+
+        dashboardPage.assertCourseVisibilityById(
+          Cypress.env('clonedCourseId'),
+          false,
+        )
+      })
+    })
   })
 
   after(function () {

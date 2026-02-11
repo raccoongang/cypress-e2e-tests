@@ -1,3 +1,9 @@
+import CourseInstructorPage from '../pages/lms/courseInstructorPage'
+import TeacherDashboardPage from '../pages/lms/teacherDashboardPage'
+
+const courseInstructorPage = new CourseInstructorPage()
+const teacherDashboardPage = new TeacherDashboardPage()
+
 Cypress.on('uncaught:exception', () => false)
 // returning false here prevents Cypress from
 // failing the test
@@ -206,7 +212,35 @@ Cypress.Commands.add('deleteCopiedCourse', () => {
 })
 
 Cypress.Commands.add('loginTeacher', () => {
-  const baseURL = Cypress.env('BASE_MFE_URL')
-  cy.visit(`${baseURL}/authn/login`)
+  cy.visit(`${Cypress.env('BASE_MFE_URL')}/authn/login`)
   cy.signin('test user', Cypress.env('TEACHER_USER_EMAIL'), Cypress.env('TEACHER_USER_PASSWORD'))
+})
+
+Cypress.Commands.add('loginLmsUser', () => {
+  cy.visit(`${Cypress.env('BASE_MFE_URL')}/authn/login`)
+  cy.signin('test user', Cypress.env('LMS_USER_EMAIL'), Cypress.env('LMS_USER_PASSWORD'))
+})
+
+Cypress.Commands.add('studentEnroll', (shouldEnroll) => {
+  cy.visit(`${Cypress.env('BASE_MFE_URL')}/teacher-dashboard/courses`)
+  teacherDashboardPage.getCopiedCourseInviteButton().first().click()
+  cy.url().should('include', Cypress.env('clonedCourseId'))
+  cy.url().should('include', '/instructor#view-membership')
+  cy.intercept('POST', '**/students_update_enrollment').as('enrollStudent')
+  courseInstructorPage.setStudentId(Cypress.env('LMS_USER_EMAIL'))
+  if (shouldEnroll) {
+    courseInstructorPage.clickStudentEnrollButton()
+  } else {
+    courseInstructorPage.clickStudentUnenrollButton()
+  }
+  cy.wait('@enrollStudent')
+    .its('response')
+    .then((res) => {
+      expect(res.statusCode).to.eq(200)
+
+      const result = res.body.results[0]
+
+      expect(result.after.enrollment, 'user enrolled').to.eq(!!shouldEnroll)
+      expect(result.before.enrollment, 'was not enrolled before').to.eq(!shouldEnroll)
+    })
 })

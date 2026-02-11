@@ -42,6 +42,7 @@ class teacherDashboardPage {
       .then(href => {
         expect(href).to.contain(Cypress.env('clonedCourseId'))
       })
+    return cy.get(this.inviteButton).should('be.visible')
   }
 }
 
